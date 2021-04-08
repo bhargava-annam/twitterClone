@@ -4,6 +4,7 @@
     <div class="col">
       <div class="panel panel-default">
         <div class="panel-body">
+          <% if user_signed_in? %>
           <p class="side-panel">
             <div class="col-sm-12" style="margin-top: 10px;">
               <div class="col-sm-2"><img src="/public/img/no_image.png" height="50px" width="50px" class="rounded-img home-avatar">
@@ -17,11 +18,14 @@
               </div>
             </div>
           </p>
+          <% end %>
         </div>
       </div>
     </div>
     <div class="col-6">
+      <% if user_signed_in? %>
       <%= render '/components/post_form' %> <br/>
+      <% end %>
       <% @posts.each do |p| %>
       <div class="panel panel-default post-panel">
         <div class="panel-body">
