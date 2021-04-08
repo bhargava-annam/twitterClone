@@ -34,10 +34,10 @@
         </div>
         <div class="col-sm-12">
           <p class="post-link">
-            <a href="" class="post-img"><i class="fas fa-reply"></i></a>
-            <a href="" class="post-img"><i class="fas fa-retweet"></i></a>
-            <a href="" class="post-img"><i class="far fa-heart"></i></a>
-            <a href="" class="post-img"><i class="fas fa-pencil-alt"></i></a>
+              <a href="" class="post-img"><i class="fas fa-reply"></i></a>
+              <%= link_to '', {:controller=>:posts,:action=>:destroy, :id=>p.id}, :method=>:delete, class:"post-img fas fa-trash" %>
+              <a href="" class="post-img"><i class="far fa-heart"></i></a>
+              <a href="" class="post-img"><i class="fas fa-pencil-alt"></i></a>
           </p>
         </div>
       </div>

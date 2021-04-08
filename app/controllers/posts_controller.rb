@@ -16,6 +16,17 @@ class PostsController < ApplicationController
         end
     end
 
+    def destroy
+        @post = Post.find(params[:id])
+        @post.destroy
+     
+        respond_to do |format|
+          format.html { redirect_to "" }
+          format.json { head :no_content }
+       end
+     end
+     
+
     private
 
     # Only allow a list of trusted parameters through.
