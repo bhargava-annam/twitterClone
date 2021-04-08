@@ -1,0 +1,71 @@
+  <br/>
+  <div class="row">
+    <div class="col">
+      <div class="jumbotron">
+          <img src="/public/img/logo.png" height="200px" width="200px" class="rounded-img">
+            <h3 style="font-weight: bold;"><%= params[:id] %></h3>
+
+        </div>
+    </div>
+</div>
+
+
+
+<br/>
+<div class="row">
+  <div class="col">
+    
+  </div>
+  <div class="col-6">
+    <% @posts.each do |p| %>
+    <div class="panel panel-default post-panel">
+      <div class="panel-body">
+        <div class="col-sm-1">
+          <%= image_tag "/img/no_image.png", style: 'height:50px;width:50px;margin-top:15px;margin-bottom:15px;'%>
+        </div>
+        <div class="col-sm-11">
+          <p class="post-title">
+            <span class='post-owner'><%= User.find(p.user_id).username %> </span>
+            - <small class='post-time'><%= p.created_at.to_formatted_s(:short)%></small>
+          </p>
+          <p class="post-content">
+            <%= p.content %>
+          </p>
+        </div>
+        <div class="col-sm-12">
+          <p class="post-link">
+            <a href="" class="post-img"><i class="fas fa-reply"></i></a>
+            <a href="" class="post-img"><i class="fas fa-retweet"></i></a>
+            <a href="" class="post-img"><i class="far fa-heart"></i></a>
+            <a href="" class="post-img"><i class="fas fa-pencil-alt"></i></a>
+          </p>
+        </div>
+      </div>
+      </div>
+      <br/>
+    <% end %>
+  </div>
+
+  <div class="col">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <p class="side-panel">about</p>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <p class="side-panel" style="opacity: 50%;">
+          <small>
+            Terms of Service
+          Privacy Policy
+          Cookie Policy
+          Ads info
+          More
+          © 2021 Twitter, Inc.
+          </small>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+

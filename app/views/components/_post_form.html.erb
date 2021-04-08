@@ -1,0 +1,20 @@
+  <div class="panel panel-default post-panel">
+    <div class="panel-body">
+      <div class="col-sm-1">
+        <%= image_tag "/img/no_image.png", style: 'height:50px;width:50px;margin-top:15px ;margin-bottom:15px' %>
+      </div>
+      <div class="col-sm-11">
+       
+        <%= form_for(@newPost) do |f| %>
+          <center>
+            <div class="field post-title">
+              <%= f.text_field :content, autofocus: true,class:"form-control" %>
+            </div>
+            <br>
+          </center>
+        <% end %> 
+        
+      </div>
+
+    </div>
+</div>
