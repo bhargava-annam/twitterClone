@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :posts
+  # resources :posts
+  resources :posts do
+    member do
+      put "like" => 'posts#like'
+    end
+  end
   # root 'pages#index'
   root 'pages#home'
   get '/home'=>'pages#home' #override default route
