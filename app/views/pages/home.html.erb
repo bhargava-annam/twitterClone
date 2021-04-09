@@ -14,7 +14,11 @@
               <%= image_tag('/img/no_image.png', style: 'height:200px;width:200px;' , class: "rounded-circle")%>
               <% end %>
             </div>
-              <div class="col-sm-10"><h4 style="text-align: center;"><%= current_user.username %></h4></div>
+              <div class="col-sm-10"><h4 style="text-align: center;">
+              <a class="post-owner" href="/user/<%= current_user.username %>">
+                <%= current_user.username %>  
+              </a>            
+              </h4></div>
               <div class="col-sm-6" style="font-size: 80%; opacity: 0.7;">POSTS<br>
                 <h6 style="color: #0084B4; font-size: 200%;"><%= current_user.posts.count %></h6>
               </div>
