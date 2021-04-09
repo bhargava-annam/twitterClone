@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
-    before_action :authenticate_user!, only: [ :like ]
+
+    before_action :authenticate_user! 
+    
     respond_to :js, :json, :html
 
     def new

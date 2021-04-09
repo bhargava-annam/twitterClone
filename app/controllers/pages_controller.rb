@@ -1,6 +1,5 @@
 #The pages controller contain all of the code for any pages inside of /pages
 class PagesController < ApplicationController
-  
   #back end code for pages/index
   def index
   end

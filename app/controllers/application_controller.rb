@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  
     #call the configured params
     before_action :configure_permitted_parameters, if: :devise_controller?
 

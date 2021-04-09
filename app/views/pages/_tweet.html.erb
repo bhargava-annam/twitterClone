@@ -31,7 +31,7 @@
                   <span class='likes-count'><%= p.get_upvotes.size %></span>              
               <% end %>
               <a href="" class="post-img"><i class="fas fa-pencil-alt"></i></a>
-              <% if user_signed_in? && current_user!=@user%>
+              <% if user_signed_in? && current_user==@user%>
                 <%= link_to '', {:controller=>:posts,:action=>:destroy, :id=>p.id}, :method=>:delete, class:"post-img fas fa-trash" %>
               <% end %>
             </p>

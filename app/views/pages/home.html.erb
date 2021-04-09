@@ -9,9 +9,13 @@
             <div class="col-sm-12" style="margin-top: 10px;">
               <div class="col-sm-2">
               <% begin %>
+              <a href="/user/<%= current_user.username %>">
               <%= image_tag current_user.avatar.variant(resize: "200x200!"), class: "rounded-circle" %>
+              </a>
               <% rescue %>
+              <a href="/users/edit">
               <%= image_tag('/img/no_image.png', style: 'height:200px;width:200px;' , class: "rounded-circle")%>
+               </a>
               <% end %>
             </div>
               <div class="col-sm-10"><h4 style="text-align: center;"><%= current_user.username %></h4></div>
@@ -36,17 +40,23 @@
     <div class="col">
      <div class="panel panel-default">
         <div class="panel-body">
-          <p class="side-panel">Who to Follow
-          
-          </p>
+          <p class="side-panel">Who to Follow </p>
         </div>
       </div>
       <div class="panel panel-default">
         <div class="panel-body">
-          <p class="side-panel" style="opacity: 50%;">
+          <p class="side-panel">
             <small>
              <% @users.each do |user|%>
-             <a href="/user/<%= user.username %>"><%= user.username%></a><br/>
+             <% if user_signed_in?%>
+             <% if current_user != user  && !current_user.following?(user)%>
+              <hr>
+             <div clas="col">
+             <%= image_tag User.find(user.id).avatar.variant(resize: "40x40!"), class: "rounded-circle", style: 'margin-top:15px;margin-bottom:15px;' %>
+             <h3><a href="/user/<%= user.username %>"><%= user.username%></a><br/></h3>
+             </div>
+             <% end %>
+             <% end%>
              <% end %>
             </small>
           </p>
