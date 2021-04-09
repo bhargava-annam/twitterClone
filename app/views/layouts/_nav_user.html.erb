@@ -24,7 +24,11 @@
           
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <% begin %>
               <%= image_tag current_user.avatar.variant(resize: "40x40!"), class: "rounded-circle" %>
+              <% rescue %>
+              <%= image_tag('/img/no_image.png', style: 'height:40px;width:40px;' , class: "rounded-circle")%>
+              <% end %>
               <%= current_user.username%>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
