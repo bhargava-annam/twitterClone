@@ -9,6 +9,7 @@ class PagesController < ApplicationController
   def home
     @posts=Post.all
     @newPost=Post.new
+    @users=User.all
   end
 
   #back end code for pages/profile

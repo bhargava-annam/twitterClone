@@ -32,8 +32,26 @@
     </div>
 
     <%= render 'tweet'%>
-  
+   
     <div class="col">
+     <div class="panel panel-default">
+        <div class="panel-body">
+          <p class="side-panel">Who to Follow
+          
+          </p>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <p class="side-panel" style="opacity: 50%;">
+            <small>
+             <% @users.each do |user|%>
+             <a href="/user/<%= user.username %>"><%= user.username%></a><br/>
+             <% end %>
+            </small>
+          </p>
+        </div>
+      </div>
       <div class="panel panel-default">
         <div class="panel-body">
           <p class="side-panel">about

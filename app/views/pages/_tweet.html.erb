@@ -16,7 +16,7 @@
           </div>
           <div class="col-sm-11">
             <p class="post-title">
-              <span class='post-owner'><%= User.find(p.user_id).username %> </span>
+              <a href="/user/<%= User.find(p.user_id).username %>"><span class='post-owner'><%= User.find(p.user_id).username %> </span></a>
               - <small class='post-time'><%= p.created_at.to_formatted_s(:short)%></small>
             </p>
             <p class="post-content">
