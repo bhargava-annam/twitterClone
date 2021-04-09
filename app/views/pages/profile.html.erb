@@ -1,8 +1,11 @@
   <br/>
   <div class="row">
     <div class="col">
-      <div class="jumbotron">
-          <img src="/public/img/logo.png" height="200px" width="200px" class="rounded-img">
+      
+          <div class="jumbotron profilejumbo">
+          <%= image_tag current_user.avatar.variant(resize: "300x300!"), class: "rounded-circle" %>
+            <h3 style="font-weight: bold;"><%= params[:id] %></h3>
+
             <h3 style="font-weight: bold;"><%= @username %></h3>
             <% if user_signed_in? && current_user!=@user%>
               <% if current_user.following?(@user)%>
@@ -11,7 +14,8 @@
                 <%= button_to 'follow', relationships_path(user_id: @user.id), class:"btn btn-primary" %> 
               <% end %>
             <% end %>
-        </div>
+            </div>
+      
     </div>
 </div>
 
@@ -27,7 +31,11 @@
     <div class="panel panel-default post-panel">
       <div class="panel-body">
         <div class="col-sm-1">
-          <%= image_tag "/img/no_image.png", style: 'height:50px;width:50px;margin-top:15px;margin-bottom:15px;'%>
+          <% begin %>
+            <%= image_tag User.find(p.user_id).avatar.variant(resize: "40x40!"), class: "rounded-circle", style: 'margin-top:15px;margin-bottom:15px;' %>
+            <% rescue %>
+            <%= image_tag('/img/no_image.png', style: 'height:50px;width:50px;margin-top:15px;margin-bottom:15px;' , class: "rounded-circle")%>
+          <% end %>
         </div>
         <div class="col-sm-11">
           <p class="post-title">
@@ -40,10 +48,10 @@
         </div>
         <div class="col-sm-12">
           <p class="post-link">
-            <a href="" class="post-img"><i class="fas fa-reply"></i></a>
-            <a href="" class="post-img"><i class="fas fa-retweet"></i></a>
-            <a href="" class="post-img"><i class="far fa-heart"></i></a>
-            <a href="" class="post-img"><i class="fas fa-pencil-alt"></i></a>
+              <a href="" class="post-img"><i class="fas fa-reply"></i></a>
+              <%= link_to '', {:controller=>:posts,:action=>:destroy, :id=>p.id}, :method=>:delete, class:"post-img fas fa-trash" %>
+              <a href="" class="post-img"><i class="far fa-heart"></i></a>
+              <a href="" class="post-img"><i class="fas fa-pencil-alt"></i></a>
           </p>
         </div>
       </div>
