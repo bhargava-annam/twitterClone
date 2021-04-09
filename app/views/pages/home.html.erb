@@ -5,24 +5,76 @@
       <div class="panel panel-default">
         <div class="panel-body">
           <% if user_signed_in? %>
-          <p class="side-panel">
+          <div class="side-panel">
             <div class="col-sm-12" style="margin-top: 10px;">
-              <div class="col-sm-2"><img src="/public/img/no_image.png" height="50px" width="50px" class="rounded-img home-avatar">
+              <div class="col-sm-2">
+              <% begin %>
+              <%= image_tag current_user.avatar.variant(resize: "200x200!"), class: "rounded-circle" %>
+              <% rescue %>
+              <%= image_tag('/img/no_image.png', style: 'height:200px;width:200px;' , class: "rounded-circle")%>
+              <% end %>
             </div>
               <div class="col-sm-10"><h4 style="text-align: center;"><%= current_user.username %></h4></div>
               <div class="col-sm-6" style="font-size: 80%; opacity: 0.7;">POSTS<br>
                 <h6 style="color: #0084B4; font-size: 200%;"><%= current_user.posts.count %></h6>
               </div>
               <div class="col-sm-6" style="font-size: 80%; opacity: 0.7;">FOLLOWERS<br>
-                <h6 style="color: #0084B4; font-size: 200%;">followers count</h6>
+                <h6 style="color: #0084B4; font-size: 200%;"><%= current_user.followers.count%></h6>
+              </div>
+              <div class="col-sm-6" style="font-size: 80%; opacity: 0.7;">FOLLOWing<br>
+                <h6 style="color: #0084B4; font-size: 200%;"><%= current_user.following.count%></h6>
               </div>
             </div>
-          </p>
+          </div>
           <% end %>
         </div>
       </div>
     </div>
-    <%= render 'tweet' %>
+
+    <div class="col-6">
+      <% if user_signed_in? %>
+      <%= render '/components/post_form' %> <br/>
+      <% end %>
+      <% @posts.each do |p| %>
+  
+        <% if !user_signed_in? || current_user == p.user || current_user.following?(p.user) %>        
+          <div class="panel panel-default post-panel">
+            <div class="panel-body">
+            <div class="col-sm-1">
+            <% begin %>
+            <%= image_tag User.find(p.user_id).avatar.variant(resize: "40x40!"), class: "rounded-circle", style: 'margin-top:15px;margin-bottom:15px;' %>
+            <% rescue %>
+            <%= image_tag('/img/no_image.png', style: 'height:50px;width:50px;margin-top:15px;margin-bottom:15px;' , class: "rounded-circle")%>
+            <% end %>
+          </div>
+          <div class="col-sm-11">
+            <p class="post-title">
+              <span class='post-owner'><%= User.find(p.user_id).username %> </span>
+              - <small class='post-time'><%= p.created_at.to_formatted_s(:short)%></small>
+            </p>
+            <p class="post-content">
+              <%= p.content %>
+            </p>
+          </div>
+          <div class="col-sm-12">
+            <p class="post-link">
+              <a href="" class="post-img"><i class="fas fa-reply"></i></a>
+              <a href="" class="post-img"><i class="fas fa-retweet"></i></a>
+              <%= link_to like_post_path(p.id) ,class:'like-btn far fa-heart post-img',onClick:"window.location.reload()" , method: :put, remote: :true do %>
+                  <span class='likes-count'><%= p.get_upvotes.size %></span>              
+              <% end %>
+              <a href="" class="post-img"><i class="fas fa-pencil-alt"></i></a>
+            </p>
+          </div>
+        </div>
+        </div>
+        <br/>
+      <% end %>
+      <% end %>
+    
+      
+      
+    </div>
   
     <div class="col">
       <div class="panel panel-default">
