@@ -35,7 +35,17 @@
       </div>
     </div>
 
-    <%= render 'tweet'%>
+    <div class="col-6">
+      <% if user_signed_in? %>
+        <%= render '/components/post_form' %> <br/>
+      <% end %>
+      <% @posts.each do |p| %>
+      <% if !user_signed_in? || current_user == p.user || current_user.following?(p.user) %>   
+      <%= render partial: 'tweet', locals: {p: p} %>
+        <br/>
+        <% end %>
+      <% end %>
+    </div>
   
     <div class="col">
       <div class="panel panel-default">
