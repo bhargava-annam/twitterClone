@@ -1,8 +1,9 @@
   <br/>
-  <div class="row">
-    <div class="col">
+  <div class="row probg">
+  
+    
       
-          <div class="jumbotron profilejumbo">
+          <div class="jumbotron profilejumbo m-4 ">
             <% begin %>
             <a href="/users/edit">
               <%= image_tag @user.avatar.variant(resize: "300x300!"), class: "rounded-circle" %>
@@ -10,7 +11,8 @@
             <% rescue %>
               <%= image_tag('/img/no_image.png', style: 'height:300px;width:300px;' , class: "rounded-circle")%>
             <% end %>
-            <h3 style="font-weight: bold;"><%= params[:id] %></h3>
+            <br/>
+            <h3 class='pl-5', style="font-weight: bold;"><%= params[:id] %></h3>
             <% if user_signed_in? && current_user!=@user%>
               <% if current_user.following?(@user)%>
                 <%= button_to 'unfollow', relationships_path(user_id: @user.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary" %> 
@@ -20,7 +22,8 @@
             <% end %>
             </div>
       
-    </div>
+  
+  
 </div>
 
 
@@ -32,7 +35,7 @@
 
   </div>
   
-  <div class="col-6">
+  <div class="col-8">
     <% if user_signed_in? && current_user==@user %>
       <%= render '/components/post_form' %> <br/>
     <% end %>
@@ -44,27 +47,7 @@
     <% end %>
   </div>
 
+  <div class="col"> </div>
 
-  <div class="col">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <p class="side-panel">about</p>
-      </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <p class="side-panel" style="opacity: 50%;">
-          <small>
-            Terms of Service
-          Privacy Policy
-          Cookie Policy
-          Ads info
-          More
-          © 2021 Twitter, Inc.
-          </small>
-        </p>
-      </div>
-    </div>
-  </div>
 </div>
 

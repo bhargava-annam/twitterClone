@@ -54,14 +54,14 @@
     <div class="col">
      <div class="panel panel-default">
         <div class="panel-body">
-          <p class="side-panel">Who to Follow </p>
+          <h2 class="side-panel">Who to Follow </h2>
         </div>
       </div>
       <div class="panel panel-default">
         <div class="panel-body">
           <p class="side-panel">
             <small>
-             <% @users.each do |user|%>
+             <% @users.limit(5).each do |user|%>
              <% if user_signed_in?%>
              <% if current_user != user  && !current_user.following?(user)%>
               <hr>
@@ -76,7 +76,11 @@
           </p>
         </div>
       </div>
-      <div class="panel panel-default">
+      
+    </div>
+    
+  </div>
+  <div class="footer panel panel-default">
         <div class="panel-body">
           <p class="side-panel">about
           
@@ -97,6 +101,4 @@
           </p>
         </div>
       </div>
-    </div>
-  </div>
 
