@@ -13,7 +13,7 @@
             <h3 style="font-weight: bold;"><%= params[:id] %></h3>
             <% if user_signed_in? && current_user!=@user%>
               <% if current_user.following?(@user)%>
-                <%= button_to 'unfollow', relationships_path(user_id: @user.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary" %> 
+                <%= button_to 'unfollow', relationships_path(user_id: @user.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary"%> 
               <% else %>
                 <%= button_to 'follow', relationships_path(user_id: @user.id), class:"btn btn-primary" %> 
               <% end %>
