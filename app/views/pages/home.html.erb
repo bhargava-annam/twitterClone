@@ -66,7 +66,7 @@
              <% if current_user != user  && !current_user.following?(user)%>
               <hr>
              <div clas="col">
-             <%= image_tag User.find(user.id).avatar.variant(resize: "40x40!"), class: "rounded-circle", style: 'margin-top:15px;margin-bottom:15px;' %>
+            
              <h3><a href="/user/<%= user.username %>"><%= user.username%></a><br/></h3>
              </div>
              <% end %>

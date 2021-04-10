@@ -13,9 +13,16 @@
           <center>
             <div class="field post-title">
               <%= f.text_field :content, autofocus: true,class:"form-control" %>
+              <br>
+              <label for="s-t"><i class="material-icons">&#xe410;</i></label><br />
+              <%= f.file_field :image, id:'s-t' %>
             </div>
             <br>
           </center>
+          <div class="actions ">
+    <%= f.submit class:"btn btn-secondary", value:"tweet" %>
+  </div>
+
         <% end %> 
         
       </div>
