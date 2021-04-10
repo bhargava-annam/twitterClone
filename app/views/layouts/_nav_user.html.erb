@@ -27,7 +27,7 @@
               <% begin %>
               <%= image_tag current_user.avatar.variant(resize: "40x40!"), class: "rounded-circle" %>
               <% rescue %>
-              <%= image_tag('/img/no_image.png', style: 'height:40px;width:40px;' , class: "rounded-circle")%>
+              <%= image_tag('/img/guest.png', style: 'height:40px;width:40px;' , class: "rounded-circle")%>
               <% end %>
               <%= current_user.username%>
             </a>
