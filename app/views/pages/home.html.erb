@@ -65,6 +65,7 @@
             <% @users.each do |user|%>
               <% if user_signed_in?%>
                 <% if current_user != user  && !current_user.following?(user)%>
+                <hr>
                   <div clas="col-sm-1">
                     <% begin %>
                         <%= image_tag User.find(user.id).avatar.variant(resize: "40x40!"), class: "sideimg rounded-circle", style: 'margin-top:15px;margin-bottom:50px;' %>
@@ -90,6 +91,7 @@
                       <% end %>
                     </p>
                   </div>
+                  
                 <% end %>
               <% end%>
             <% end %>
