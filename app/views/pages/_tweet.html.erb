@@ -4,7 +4,7 @@
       <% begin %>
         <%= image_tag User.find(p.user_id).avatar.variant(resize: "40x40!"), class: "rounded-circle", style: 'margin-top:15px;margin-bottom:15px;' %>
       <% rescue %>
-        <%= image_tag('/img/no_image.png', style: 'height:50px;width:50px;margin-top:15px;margin-bottom:15px;' , class: "rounded-circle")%>
+        <%= image_tag('/img/guest.png', style: 'height:50px;width:50px;margin-top:15px;margin-bottom:15px;' , class: "rounded-circle")%>
       <% end %>
     </div>
     <div class="col-sm-11">
@@ -24,7 +24,7 @@
     </div>
     <div class="col-sm-12">
       <p class="post-link">
-        <a href="" class="post-img"><i class="fas fa-reply"></i></a>
+        <a href="" class="post-img"><i class="fa fa-reply"></i></a>
         <a href="" class="post-img"><i class="fas fa-retweet"></i></a>
         <%= link_to like_post_path(p.id) ,class:'like-btn far fa-heart post-img',onClick:"window.location.reload()" , method: :put, remote: :true do %>
             <span class='likes-count'><%= p.get_upvotes.size %></span>              
