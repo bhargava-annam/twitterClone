@@ -16,10 +16,11 @@
       </p>
       <p class="post-content">
         <%= p.content %>
+        <div class="image-tweet" >
+          <%= image_tag(p.image, style: 'width:100%') if p.image.attached? %>
+        </div>
       </p>
-      <div style="width:400px; height:auto">
-        <%= image_tag(p.image, style: 'width:100%')%>
-      </div>
+      
     </div>
     <div class="col-sm-12">
       <p class="post-link">
