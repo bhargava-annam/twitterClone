@@ -539,6 +539,11 @@ background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
   .navbar-brand img{
     height: "50";
   }
+  .image-tweet{
+    width:11rem;
+    height:auto; 
+    margin:0px auto;
+  }
 }
 @media screen and (max-width: 600px) {
   
