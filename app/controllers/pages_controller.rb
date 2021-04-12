@@ -1,5 +1,6 @@
 #The pages controller contain all of the code for any pages inside of /pages
 class PagesController < ApplicationController
+  before_action :authenticate_user! ,only: %i[home]
   #back end code for pages/index
   def index
   end
@@ -9,7 +10,6 @@ class PagesController < ApplicationController
     @posts=Post.all
     @newPost=Post.new
     @users=User.all
-
   end
 
   #back end code for pages/profile
@@ -28,5 +28,7 @@ class PagesController < ApplicationController
   #back end code for pages/explore
   def explore
     @posts=Post.all
+    @newPost=Post.new
+    @users=User.all
   end
 end
