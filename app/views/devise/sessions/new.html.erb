@@ -1,82 +1,50 @@
-<div class='bg'> 
-<img>
-<%= image_tag "bgrd.jpeg",class:'newbg' %>
-<img>
+
+<div class="d-flex flex-row">
+  <div class="login">
+  <img> <%= link_to image_tag('login.png',alt:'logo'), root_path ,class:"navbar-brand"%> </img>
+  </div>
+
+
+  <div class="p-2 login-2">
+  <div class="d-flex flex-column">
+    <%= link_to image_tag('/img/logo.png',class:"logo",height:"50",alt:'logo'), root_path ,class:"navbar-brand"%>
+	<h2 >Log in</h2>	
+    <br/><br/>
+   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+
+   <span><i class="fa fa-user"></i>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "E-mail"%>
+	</span>
+
+  </div>
+  <br>
+  <div class="field">
+   <span><i class="fa fa-lock"></i>
+    <%= f.password_field :password, autocomplete: "current-password",placeholder:"password" %>
+	</span>
+  </div>
+  <br/>
+  <% if devise_mapping.rememberable? %>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+  <br/>
+    <%= f.submit "Log in" %>
+  </div>
+<% end %>
+	<div>Already have an account?
+	<%= render "devise/shared/links" %>
+	
+	</div>
+
+  </div>
+  </div>
 </div>
-  
-		<div class="rowlog">
-			<div class="col-lg-6 col-md-6 form-container newfrm">
-				<div class="col-lg-8 col-md-12 col-sm-9 col-xs-12 form-box text-center">
-					<div class="logo mt-5 mb-3">
-						<%= image_tag "logo.png", class:'log1' %> 
-					</div>
-					<div class="heading mb-3">
-						<h4>LogIn into your account</h4>
-					</div>
-					<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-						<div class="form-input">
-				   	<!--		<span><i class="fa fa-envelope"></i></span>
-							<input type="email" placeholder="Email Address" required>   -->
-              <span><i class="fa fa-envelope"></i></span>
-              <%= f.email_field :email, autofocus: true, autocomplete: "email" ,placeholder:'Email'%>
-						</div>
-						<div class="form-input">
-				   	<!--		<span><i class="fa fa-lock"></i></span>
-							<input type="password" placeholder="Password" required>    -->
-              <span><i class="fa fa-lock"></i></span>
-              <%= f.password_field :password, autocomplete: "current-password" , placeholder:'Password'%>
-						</div>
-						<div class="row mb-3">
-							<div class="col-6 d-flex">
-								<div class="custom-control custom-checkbox">
-					       <!--			<input type="checkbox" class="custom-control-input" id="cb1">
-									<label class="custom-control-label text-white" for="cb1">Remember me</label>  -->
-                 <!--  <% if devise_mapping.rememberable? %>
-                      <%= f.check_box :remember_me %>&nbsp;
-                      <%= f.label :remember_me ,class:'text-white'%>
-                  <% end %>    -->
-								</div>
-							</div>
-						</div>
-						<div class="text-left mb-3">
-							<!-- button type="submit" class="btn">Login</button>  -->
-              <div class="actions">
-                <%= f.submit "Log in" %>
-              </div> 
-						</div>
-          <% end %>
-						<div class="text-white mb-3">or login with</div>
-						<div class="row mb-3">
-							<div class="col-4">
-								<a href="" class="btn btn-block btn-social btn-facebook">
-									<i class="fa fa-facebook"></i>
-								</a>
-							</div>
-							<div class="col-4">
-								<a href="" class="btn btn-block btn-social btn-google">
-									<i class="fa fa-google"></i>
-								</a>
-							</div>
-							<div class="col-4">
-								<a href="" class="btn btn-block btn-social btn-twitter">
-									<i class="fa fa-github"></i>
-								</a>
-							</div>
-						</div>
-						<div class="text-white">Don't have an account?
-              <%= render "devise/shared/links" %>
-						 <!--	<a href="register.html" class="register-link">Register here</a><br/> <br/><br/> <br/> -->
-						</div>
-
-				</div>
-			</div>
-      	
-			<%# <div class="col-lg-6 col-md-6 d-none d-md-block image-container"></div> %>
-		</div>
-
-
-
-
 
 
 
