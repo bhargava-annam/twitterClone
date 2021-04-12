@@ -1,0 +1,36 @@
+<div class="container">
+<h1>Edit tweet</h1>
+       <br/><br/>
+           
+           
+      <div class="panel panel-default post-panel">
+      <div class="panel-body">
+      <div class="col-sm-1">
+        <% begin %>
+        <%= image_tag current_user.avatar.variant(resize: "50x50!"), class: "rounded-circle", style: 'margin-top:15px;margin-bottom:15px;' %>
+        <% rescue %>
+        <%= image_tag('/img/guest.png', style: 'height:50px;width:50px;margin-top:15px;margin-bottom:15px;' , class: "rounded-circle")%>
+        <% end %>
+      </div>
+      <div class="col-sm-11">
+       
+        <%= form_for(@post) do |f| %>
+            <div class="field post-title">
+              <%= f.text_field :content, autofocus: true,class:"form-control" %>
+              <br>
+              <label for="s-t"><i class="material-icons">&#xe410;</i></label><br />
+              <%= f.file_field :image, id:'s-t' %>
+            </div>
+               <div class="actions ">
+            <%= f.submit "Tweet", class:"btn btn-secondary"%>
+          <div>
+         
+          <br>
+
+        <% end %> 
+        
+      </div>
+
+    </div>
+</div>
+</div>

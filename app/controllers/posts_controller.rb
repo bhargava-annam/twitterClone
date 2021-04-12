@@ -28,8 +28,21 @@ class PostsController < ApplicationController
           format.html { redirect_to "" }
           format.json { head :no_content }
        end
-     end
-     
+    end
+    def edit
+        @post = Post.find(params[:id])
+    end
+
+    def update
+        @post = Post.find(params[:id])
+       if @post.user_id == current_user.id
+        @post.update (post_params)
+        redirect_to root_path ,notice:"Succesfully edited the tweet."
+       else
+        redirect_to root_path ,notice:"NOT AUTHERISED"
+       end
+    end
+
     def like
         @post = Post.find(params[:id])
         if !current_user.liked? @post
