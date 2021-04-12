@@ -51,10 +51,12 @@
     <% if user_signed_in? && current_user==@user %>
       <%= render '/components/post_form' %> <br/>
     <% end %>
+    <div class="scroll-center-column">
     <% @posts.each do |p| %>
       <%= render partial: 'tweet', locals: {p: p} %>
       <br/>
     <% end %>
+    </div>
   </div>
 
   <div class="col"> </div>
