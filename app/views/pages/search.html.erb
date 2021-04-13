@@ -1,0 +1,39 @@
+
+  <% if @results.count > 0 %>
+        <br/><br/> 
+       <h1>Search Result</h1> 
+       <br/><br/> 
+  <div>
+       <% @results.each do |result| %> 
+       <% if current_user.id != result.id %> 
+       <div class=" d-flex flex-row p-2 m-3 justify-content-around card" style="width: 12rem;">
+               <% begin %>
+                 <% if current_user.id == result.id%>
+                   <a href="/users/edit">
+                     <%= image_tag result.avatar.variant(resize: "100x100!"), class: "rounded-circle" %>
+                   </a>
+                 <% else %>
+                   <%= image_tag result.avatar.variant(resize: "100x100!"), class: "rounded-circle" %>
+                 <%end%>
+               <% rescue %>
+                 <% if current_user.id == result.id %>
+                   <a href="/users/edit">
+                     <%= image_tag('/img/guest.png', style: 'height:100px;width:100px;' , class: "rounded-circle")%>
+                   </a>
+                 <%else%>
+                   <%= image_tag('/img/guest.png', style: 'height:100px;width:100px;' , class: "rounded-circle")%>
+                 <%end%>
+               <% end %>
+           <a href="/user/<%= result.username %>">
+              <span class='post-owner'>
+                <%= result.username%>
+              </span>
+              <br/><br/>
+           </a>
+       </div>  
+       <% end %>
+       <% end %>
+  </div>
+   <% else %>
+       <h1>OOps! , no results Found</h1>
+   <% end %>

@@ -12,5 +12,9 @@ Rails.application.routes.draw do
   get '/user/:id'=>'pages#profile'
   get '/explore'=>'pages#explore'
   resource :relationships, only: [:create, :destroy]
+
+  get '/search' => 'pages#search', :as => 'search_page'
+
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -31,4 +31,16 @@ class PagesController < ApplicationController
     @newPost=Post.new
     @users=User.all
   end
+
+  def search  
+    if params[:search].blank?  
+      redirect_to(root_path, alert: "Empty field!") and return  
+    else  
+      @parameter = params[:search].downcase  
+      @results = User.all.where("lower(username) LIKE :search", search: "%#{@parameter}%")  
+      puts @results
+    end 
+  end
+
+
 end
