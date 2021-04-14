@@ -12,9 +12,9 @@
           <div class="col-sm-8">
           <br/><br/><br/><br/>
             <% if resource.avatar.attached? %>
-            <%= image_tag resource.avatar.variant(resize: "400x400!"), class: "rounded-square" %>
+            <%= image_tag resource.avatar.variant(resize: "400x400!"), class: "rounded-circle" %>
             <% else %>
-              <%= image_tag ("/img/no_image.png"),height: 400,width: 400, class: "rounded-square" %>
+              <%= image_tag ("/img/no_image.png"),height: 400,width: 400, class: "rounded-circle" %>
             <% end %>
           </div>
           <div class="col-sm-8">
