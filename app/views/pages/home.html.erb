@@ -64,7 +64,7 @@
       </div>
     </div>
   
-    <div class="col" style="margin-top: -21px;">
+    <div class="col" style="margin-top: -36px;">
      
 
 
@@ -132,7 +132,7 @@
                     </div>
                     <div style="margin-top: -84px;margin-bottom: -40px;">
                       <span class="whotofollowtitle" style="margin-left: 42px;">
-                        <a href="/user/<%= f.username %>">
+                        &nbsp;<a href="/user/<%= f.username %>">
                           <span class='post-owner'>
                             <%= f.username%>
                           </span>
@@ -141,9 +141,9 @@
                       <p>
                         <% if user_signed_in? && current_user!=f%>
                           <% if current_user.following?(f)%>
-                            <%= button_to 'unfollow', relationships_path(user_id: f.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm",style:"margin-left: 127px;margin-top: -80px;"%> 
+                            <%= button_to 'unfollow', relationships_path(user_id: f.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm",style:"margin-left: 133px;margin-top: -80px;"%> 
                           <% else %>
-                            <%= button_to 'follow', relationships_path(user_id: f.id), class:"btn btn-primary btn-sm",style:"margin-left: 127px;margin-top: -80px;" %> 
+                            <%= button_to 'follow', relationships_path(user_id: f.id), class:"btn btn-primary btn-sm",style:"margin-left: 133px;margin-top: -80px;" %> 
                           <% end %>
                         <% end %>
                       </p>
@@ -175,7 +175,7 @@
                     </div>
                     <div style="margin-top: -84px;margin-bottom: -40px;">
                       <span class="whotofollowtitle" style="margin-left: 42px;">
-                        <a href="/user/<%= f.username %>">
+                        &nbsp;<a href="/user/<%= f.username %>">
                           <span class='post-owner'>
                             <%= f.username%>
                           </span>
@@ -184,9 +184,9 @@
                       <p>
                         <% if user_signed_in? && current_user!=f%>
                           <% if current_user.following?(f)%>
-                            <%= button_to 'unfollow', relationships_path(user_id: f.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm",style:"margin-left: 127px;margin-top: -80px;"%> 
+                            <%= button_to 'unfollow', relationships_path(user_id: f.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm",style:"margin-left: 133px;margin-top: -80px;"%> 
                           <% else %>
-                            <%= button_to 'follow', relationships_path(user_id: f.id), class:"btn btn-primary btn-sm",style:"margin-left: 127px;margin-top: -80px;" %> 
+                            <%= button_to 'follow', relationships_path(user_id: f.id), class:"btn btn-primary btn-sm",style:"margin-left: 133px;margin-top: -80px;" %> 
                           <% end %>
                         <% end %>
                       </p>
