@@ -430,6 +430,11 @@ background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
       flex-wrap: wrap;
       justify-content: space-evenly;      
   } 
+  .image-tweet{
+    width:12rem;
+    height:auto; 
+    margin:0px auto;
+  }
 }
 
 @media screen and (max-width: 1080px) {
@@ -458,6 +463,11 @@ background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
   .navbar-brand img{
     height: "10";
   }
+  .image-tweet{
+    width:12rem;
+    height:auto; 
+    margin:0px auto;
+  }
 }
 
 @media screen and (max-width: 1050px) {
@@ -483,6 +493,11 @@ background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
   }
   .navbar-brand img{
     height: "40";
+  }
+  .image-tweet{
+    width:12rem;
+    height:auto; 
+    margin:0px auto;
   }
 }
 
@@ -512,6 +527,11 @@ background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
   }
   .navbar-brand img{
     height: "50";
+  }
+  .image-tweet{
+    width:12rem;
+    height:auto; 
+    margin:0px auto;
   }
 }
 @media screen and (max-width: 720px) {
@@ -700,6 +720,9 @@ background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
 #s-t{
   display:none;
 }
+#s-t1{
+  display:none;
+}
 
 .probg{
   background-color: white;
@@ -718,4 +741,9 @@ background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
 
 .login-2{
   margin-top: 12%;
+}
+.image-tweet1{
+  width:10rem;
+  margin-bottom: 20px;
+  
 }
