@@ -1,7 +1,7 @@
   <br/>
   <br>
   <div class="row">
-    <div class="col">
+    <div class="col" style="margin-top: -21px;">
       <div class="panel panel-default">
         <div class="panel-body">
           <% if user_signed_in? %>
@@ -18,12 +18,12 @@
                </a>
               <% end %>
             </div>
-              <div class="col-sm-10"><h4 style="text-align: center;">
+              <div class="col-sm-10"><h4 style="text-align: center;margin-left: 43px;">
               <a class="post-owner" href="/user/<%= current_user.username %>">
                 <%= current_user.username %>  
               </a>            
               </h4></div>
-              <div class="col-sm-6" style="font-size: 80%; opacity: 0.7;">POSTS<br>
+              <div class="col-sm-6" style="margin-left: 57px;font-size: 80%; opacity: 0.7;">POSTS<br>
                 <h6 style="color: #0084B4; font-size: 200%;"><%= current_user.posts.count %></h6>
               </div>
                <div class="row">
@@ -40,11 +40,7 @@
                 <h6 style="color: #0084B4; font-size: 200%;"><%= current_user.followers.count %></h6>
                 </div>
                </div>
-                
 
-              
-                
-                
               <br>
               <br>
 
@@ -55,21 +51,20 @@
       </div>
     </div>
 
-    <div class="col-6 ">
+    <div class="col-6 " style="margin-top: -21px;">
       <% if user_signed_in? %>
-        <%= render '/components/post_form' %> <br/>
+        <%= render '/components/post_form' %>
       <% end %>
       <div class="scroll-center-column">
       <% @posts.each do |p| %>
       <% if !user_signed_in? || current_user == p.user || current_user.following?(p.user) %>   
       <%= render partial: 'tweet', locals: {p: p} %>
-        <br/>
         <% end %>
       <% end %>
       </div>
     </div>
   
-    <div class="col">
+    <div class="col" style="margin-top: -21px;">
       <div class="panel panel-default">
         <div class="panel-body">
           <p class="side-panel">
@@ -85,25 +80,26 @@
                 <% if current_user != user  && !current_user.following?(user)%>
                   <div clas="col-sm-1">
                     <% begin %>
-                        <%= image_tag User.find(user.id).avatar.variant(resize: "40x40!"), class: "sideimg rounded-circle", style: 'margin-top:15px;margin-bottom:50px;' %>
+                        <%= image_tag User.find(user.id).avatar.variant(resize: "40x40!"), class: "sideimg rounded-circle", style: 'margin-left: 4px;margin-top:15px;margin-bottom:50px;' %>
                     <% rescue %>
-                        <%= image_tag('/img/guest.png',class: "sideimg rounded-circle", style: 'height:40px;width:40px;margin-top:15px;margin-bottom:50px;')%>
+                        <%= image_tag('/img/guest.png',class: "sideimg rounded-circle", style: 'margin-left: 4px;height:40px;width:40px;margin-top:15px;margin-bottom:50px;')%>
                     <% end %>
 
                   </div>
-                  <div class="col-sm-11" style="margin-top: -92px;">
+                  <div class="col-sm-11" style="margin-top: -84px;margin-bottom: -40px;">
                     <span class="whotofollowtitle">
                       <a href="/user/<%= user.username %>">
                         <span class='post-owner'>
                           <%= user.username%>
                         </span>
                       </a>
-                      </span>
+                    </span>
+                    <p>
                       <% if user_signed_in? && current_user!=@user%>
                         <% if current_user.following?(@user)%>
-                          <%= button_to 'unfollow', relationships_path(user_id: user.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary",style:"margin-left: 127px;margin-top: -30px;"%> 
+                          <%= button_to 'unfollow', relationships_path(user_id: user.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm",style:"margin-left: 127px;margin-top: -80px;"%> 
                         <% else %>
-                          <%= button_to 'follow', relationships_path(user_id: user.id), class:"btn btn-primary",style:"margin-left: 127px;margin-top: -30px;" %> 
+                          <%= button_to 'follow', relationships_path(user_id: user.id), class:"btn btn-primary btn-sm",style:"margin-left: 127px;margin-top: -80px;" %> 
                         <% end %>
                       <% end %>
                     </p>
@@ -131,7 +127,7 @@
                       </span>
                       <% if user_signed_in? && current_user!=@user%>
                         <% if current_user.following?(@user)%>
-                          <%= button_to 'unfollow', relationships_path(user_id: user.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary",style:"margin-left: 127px;margin-top: -30px;"%> 
+                          <%= button_to 'unfollow', relationships_path(user_id: user.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm",style:"margin-left: 127px;margin-top: -30px;"%> 
                         <% else %>
                           <%= button_to 'follow', relationships_path(user_id: user.id), class:"btn btn-primary",style:"margin-left: 127px;margin-top: -30px;" %> 
                         <% end %>
@@ -145,9 +141,13 @@
         </div>
       </div>
       <br>
+
+
+
+
       <div class="panel panel-default">
         <div class="panel-body">
-          <p class="side-panel" style="opacity: 50%;">
+          <p style="opacity: 50%;">
               <div class="collapse" id="collapseExample1">
                 <div class="card card-body">
                   <div class="panel-body">
@@ -156,7 +156,32 @@
                     </p>
                   </div>
                   <% current_user.following.each do |f|%>
-                    <%= f.username%><br>
+                    <div clas="col-sm-1">
+                      <% begin %>
+                          <%= image_tag User.find(f.id).avatar.variant(resize: "40x40!"), class: "sideimg rounded-circle", style: 'margin-top:15px;margin-bottom:50px;' %>
+                      <% rescue %>
+                          <%= image_tag('/img/guest.png',class: "sideimg rounded-circle", style: 'height:40px;width:40px;margin-top:15px;margin-bottom:50px;')%>
+                      <% end %>
+                    </div>
+                    <div style="margin-top: -84px;margin-bottom: -40px;">
+                      <span class="whotofollowtitle" style="margin-left: 42px;">
+                        <a href="/user/<%= f.username %>">
+                          <span class='post-owner'>
+                            <%= f.username%>
+                          </span>
+                        </a>
+                        </span>
+                      <p>
+                        <% if user_signed_in? && current_user!=f%>
+                          <% if current_user.following?(f)%>
+                            <%= button_to 'unfollow', relationships_path(user_id: f.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm",style:"margin-left: 127px;margin-top: -80px;"%> 
+                          <% else %>
+                            <%= button_to 'follow', relationships_path(user_id: f.id), class:"btn btn-primary btn-sm",style:"margin-left: 127px;margin-top: -80px;" %> 
+                          <% end %>
+                        <% end %>
+                      </p>
+                    </div>
+                  <br>
                   <% end %>
                 </div>
               </div>
@@ -165,7 +190,7 @@
       </div>
       <div class="panel panel-default">
         <div class="panel-body">
-          <p class="side-panel" style="opacity: 50%;">
+          <p style="opacity: 50%;">
               <div class="collapse" id="collapseExample2">
                 <div class="card card-body">
                   <div class="panel-body">
@@ -174,7 +199,32 @@
                     </p>
                   </div>
                   <% current_user.followers.each do |f|%>
-                    <%= f.username%><br>
+                    <div clas="col-sm-1">
+                      <% begin %>
+                          <%= image_tag User.find(f.id).avatar.variant(resize: "40x40!"), class: "sideimg rounded-circle", style: 'margin-top:15px;margin-bottom:50px;' %>
+                      <% rescue %>
+                          <%= image_tag('/img/guest.png',class: "sideimg rounded-circle", style: 'height:40px;width:40px;margin-top:15px;margin-bottom:50px;')%>
+                      <% end %>
+                    </div>
+                    <div style="margin-top: -84px;margin-bottom: -40px;">
+                      <span class="whotofollowtitle" style="margin-left: 42px;">
+                        <a href="/user/<%= f.username %>">
+                          <span class='post-owner'>
+                            <%= f.username%>
+                          </span>
+                        </a>
+                        </span>
+                      <p>
+                        <% if user_signed_in? && current_user!=f%>
+                          <% if current_user.following?(f)%>
+                            <%= button_to 'unfollow', relationships_path(user_id: f.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm",style:"margin-left: 127px;margin-top: -80px;"%> 
+                          <% else %>
+                            <%= button_to 'follow', relationships_path(user_id: f.id), class:"btn btn-primary btn-sm",style:"margin-left: 127px;margin-top: -80px;" %> 
+                          <% end %>
+                        <% end %>
+                      </p>
+                    </div>
+                  <br>
                   <% end %>
                 </div>
               </div>

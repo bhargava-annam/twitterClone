@@ -23,6 +23,7 @@ class PagesController < ApplicationController
     end
     @posts=Post.all.where("user_id = ?",User.find_by_username(params[:id]).id)
     @newPost=Post.new
+    @users=User.all
   end
 
   #back end code for pages/explore
