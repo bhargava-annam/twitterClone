@@ -80,14 +80,14 @@
                 <% if current_user != user  && !current_user.following?(user)%>
                   <div clas="col-sm-1">
                     <% begin %>
-                        <%= image_tag User.find(user.id).avatar.variant(resize: "40x40!"), class: "sideimg rounded-circle", style: 'margin-left: 4px;margin-top:15px;margin-bottom:50px;' %>
+                        <%= image_tag User.find(user.id).avatar.variant(resize: "40x40!"), class: "sideimg rounded-circle", style: 'margin-left: 20px;margin-top:15px;margin-bottom:50px;' %>
                     <% rescue %>
-                        <%= image_tag('/img/guest.png',class: "sideimg rounded-circle", style: 'margin-left: 4px;height:40px;width:40px;margin-top:15px;margin-bottom:50px;')%>
+                        <%= image_tag('/img/guest.png',class: "sideimg rounded-circle", style: 'margin-left: 20px;height:40px;width:40px;margin-top:15px;margin-bottom:50px;')%>
                     <% end %>
 
                   </div>
                   <div class="col-sm-11" style="margin-top: -84px;margin-bottom: -40px;">
-                    <span class="whotofollowtitle">
+                    <span class="whotofollowtitle" style="margin-left: 47px;">
                       <a href="/user/<%= user.username %>">
                         <span class='post-owner'>
                           <%= user.username%>
@@ -97,9 +97,9 @@
                     <p>
                       <% if user_signed_in? && current_user!=@user%>
                         <% if current_user.following?(@user)%>
-                          <%= button_to 'unfollow', relationships_path(user_id: user.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm",style:"margin-left: 127px;margin-top: -80px;"%> 
+                          <%= button_to 'unfollow', relationships_path(user_id: user.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm",style:"margin-left: 138px;margin-top: -80px;"%> 
                         <% else %>
-                          <%= button_to 'follow', relationships_path(user_id: user.id), class:"btn btn-primary btn-sm",style:"margin-left: 127px;margin-top: -80px;" %> 
+                          <%= button_to 'follow', relationships_path(user_id: user.id), class:"btn btn-primary btn-sm",style:"margin-left: 138px;margin-top: -80px;" %> 
                         <% end %>
                       <% end %>
                     </p>
@@ -127,9 +127,9 @@
                       </span>
                       <% if user_signed_in? && current_user!=@user%>
                         <% if current_user.following?(@user)%>
-                          <%= button_to 'unfollow', relationships_path(user_id: user.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm",style:"margin-left: 127px;margin-top: -30px;"%> 
+                          <%= button_to 'unfollow', relationships_path(user_id: user.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm",style:"margin-left: 133px;margin-top: -30px;"%> 
                         <% else %>
-                          <%= button_to 'follow', relationships_path(user_id: user.id), class:"btn btn-primary",style:"margin-left: 127px;margin-top: -30px;" %> 
+                          <%= button_to 'follow', relationships_path(user_id: user.id), class:"btn btn-primary",style:"margin-left: 133px;margin-top: -30px;" %> 
                         <% end %>
                       <% end %>
                     </p>
@@ -174,9 +174,9 @@
                       <p>
                         <% if user_signed_in? && current_user!=f%>
                           <% if current_user.following?(f)%>
-                            <%= button_to 'unfollow', relationships_path(user_id: f.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm",style:"margin-left: 127px;margin-top: -80px;"%> 
+                            <%= button_to 'unfollow', relationships_path(user_id: f.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm",style:"margin-left: 133px;margin-top: -80px;"%> 
                           <% else %>
-                            <%= button_to 'follow', relationships_path(user_id: f.id), class:"btn btn-primary btn-sm",style:"margin-left: 127px;margin-top: -80px;" %> 
+                            <%= button_to 'follow', relationships_path(user_id: f.id), class:"btn btn-primary btn-sm",style:"margin-left: 133px;margin-top: -80px;" %> 
                           <% end %>
                         <% end %>
                       </p>
@@ -217,9 +217,9 @@
                       <p>
                         <% if user_signed_in? && current_user!=f%>
                           <% if current_user.following?(f)%>
-                            <%= button_to 'unfollow', relationships_path(user_id: f.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm",style:"margin-left: 127px;margin-top: -80px;"%> 
+                            <%= button_to 'unfollow', relationships_path(user_id: f.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm",style:"margin-left: 133px;margin-top: -80px;"%> 
                           <% else %>
-                            <%= button_to 'follow', relationships_path(user_id: f.id), class:"btn btn-primary btn-sm",style:"margin-left: 127px;margin-top: -80px;" %> 
+                            <%= button_to 'follow', relationships_path(user_id: f.id), class:"btn btn-primary btn-sm",style:"margin-left: 133px;margin-top: -80px;" %> 
                           <% end %>
                         <% end %>
                       </p>
