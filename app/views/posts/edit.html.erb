@@ -15,13 +15,17 @@
       <div class="col-sm-11">
        
         <%= form_for(@post) do |f| %>
+        <center>
             <div class="field post-title">
               <%= f.text_field :content, autofocus: true,class:"form-control" %>
               <br>
               <label for="s-t"><i class="material-icons">&#xe410;</i></label><br />
-              <%= f.file_field :image, id:'s-t' %>
+              <%= f.file_field :image, id:'s-t'%>
               <% if @post.image.attached?%>
-                <%= f.label :remove_image%>
+                <div class="image-tweet1" >
+                  <%= image_tag(@post.image, style: 'width:100%') if @post.image.attached? %>
+                 </div>
+                 <%= f.label :remove_image %>
                 <%= f.check_box :remove_image %>
     
               <% end %>
@@ -29,6 +33,7 @@
                <div class="actions ">
             <%= f.submit "Tweet", class:"btn btn-secondary"%>
           <div>
+          </center>
          
           <br>
 
