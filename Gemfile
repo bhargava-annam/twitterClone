@@ -27,6 +27,8 @@ gem 'jquery-rails'
 
 gem 'devise'
 
+gem 'dotenv-rails'
+
 # gem for likes
 gem 'acts_as_votable'
 
