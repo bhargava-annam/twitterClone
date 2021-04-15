@@ -23,7 +23,7 @@
       </p>
       
     </div>
-    <div class="col-sm-12">
+    <div class="col-sm-3">
       <p class="post-link">
         <% if user_signed_in? && current_user==User.find_by_username(reply.name)%>
           <%= link_to '', [reply.post,reply],method: :delete, data: {confirm: 'Are you sure'}, class:"post-img fas fa-trash" %>

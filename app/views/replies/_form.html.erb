@@ -1,26 +1,26 @@
-  <div class="panel panel-default post-panel">
-    <div class="panel-body">
-      <div class="col-sm-1">
-        <% begin %>
-          <%= image_tag current_user.avatar.variant(resize: "50x50!"), class: "rounded-circle", style: 'margin-top:15px;margin-bottom:15px;' %>
-        <% rescue %>
-          <%= image_tag('/img/guest.png', style: 'height:50px;width:50px;margin-top:15px;margin-bottom:15px;' , class: "rounded-circle")%>
-        <% end %>
-      </div>
-      <div class="col-sm-11">
-       
-        <%= form_for([@post,@post.replies.build]) do |f| %>
-          <center>
-            <div class="field post-title">
-                <%= f.hidden_field :name ,:value => "#{current_user.username}"%>
-                <%= f.text_field :body, autofocus: true,class:"form-control" %>
-            </div>
-          </center>
-          <br>
-
-        <% end %> 
-        
-      </div>
-
+<div class="panel panel-default post-panel">
+  <div class="panel-body">
+    <div class="col-sm-1">
+      <% begin %>
+        <%= image_tag current_user.avatar.variant(resize: "50x50!"), class: "rounded-circle", style: 'margin-top:15px;margin-bottom:15px;' %>
+      <% rescue %>
+        <%= image_tag('/img/guest.png', style: 'height:50px;width:50px;margin-top:15px;margin-bottom:15px;' , class: "rounded-circle")%>
+      <% end %>
     </div>
+    <div class="col-sm-11">
+      
+      <%= form_for([@post,@post.replies.build]) do |f| %>
+        <center>
+          <div class="field post-title">
+              <%= f.hidden_field :name ,:value => "#{current_user.username}"%>
+              <%= f.text_field :body,required: true, autofocus: true,class:"form-control" %>
+          </div>
+        </center>
+        <br>
+
+      <% end %> 
+      
+    </div>
+
+  </div>
 </div>
