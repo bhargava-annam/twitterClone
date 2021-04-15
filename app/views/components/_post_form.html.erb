@@ -12,7 +12,7 @@
         <%= form_for(@newPost) do |f| %>
           <center>
             <div class="field post-title">
-              <%= f.text_field :content, autofocus: true,class:"form-control" %>
+              <%= f.text_field :content,required: true, autofocus: true,class:"form-control" %>
               <br>
               <label for="s-t"><i class="material-icons">&#xe410;</i></label><br />
               <%= f.file_field :image, id:'s-t' %>
