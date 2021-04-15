@@ -77,9 +77,9 @@
                   <p>
                     <% if user_signed_in? && current_user!=user%>
                       <% if current_user.following?(@user)%>
-                        <%= button_to 'unfollow', relationships_path(user_id: user.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm",style:"margin-left: 138px;margin-top: -80px;"%> 
+                        <%= button_to 'unfollow', relationships_path(user_id: user.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-primary btn-sm",style:"margin-left: 138px;margin-top: -80px;"%> 
                       <% else %>
-                        <%= button_to 'follow', relationships_path(user_id: user.id), class:"btn btn-primary btn-sm",style:"margin-left: 138px;margin-top: -80px;" %> 
+                        <%= button_to 'follow', relationships_path(user_id: user.id), class:"btn btn-outline-primary btn-sm",style:"margin-left: 138px;margin-top: -80px;" %> 
                       <% end %>
                     <% end %>
                   </p>
@@ -107,9 +107,9 @@
                     </span>
                     <% if user_signed_in? && current_user!=@user%>
                       <% if current_user.following?(@user)%>
-                        <%= button_to 'unfollow', relationships_path(user_id: user.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm",style:"margin-left: 127px;margin-top: -30px;"%> 
+                        <%= button_to 'unfollow', relationships_path(user_id: user.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-primary btn-sm",style:"margin-left: 127px;margin-top: -30px;"%> 
                       <% else %>
-                        <%= button_to 'follow', relationships_path(user_id: user.id), class:"btn btn-primary",style:"margin-left: 127px;margin-top: -30px;" %> 
+                        <%= button_to 'follow', relationships_path(user_id: user.id), class:"btn btn-outline-primary",style:"margin-left: 127px;margin-top: -30px;" %> 
                       <% end %>
                     <% end %>
                   </p>
