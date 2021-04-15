@@ -4,7 +4,9 @@
       <% begin %>
         <%= image_tag User.find_by_username(reply.name).avatar.variant(resize: "40x40!"), class: "rounded-circle", style: 'margin-top:15px;margin-bottom:15px;' %>
       <% rescue %>
-        <%= image_tag('/img/guest.png', style: 'height:50px;width:50px;margin-top:15px;margin-bottom:15px;' , class: "rounded-circle")%>
+        <% if reply.body %>
+          <%= image_tag('/img/guest.png', style: 'height:50px;width:50px;margin-top:15px;margin-bottom:15px;' , class: "rounded-circle")%>
+        <% end %>
       <% end %>
     </div>
     <div class="col-sm-11">
