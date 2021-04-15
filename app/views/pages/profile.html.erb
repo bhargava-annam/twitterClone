@@ -30,7 +30,7 @@
         <% end %>
         <h3>@<%= @user.username %></h3>
         <p><i class="fa fa-calendar-o"></i>&ensp;joined <%= time_ago_in_words(@user.created_at) %> ago
-        <br><br><span style='color:blue'><%= @user.followers.count %>&nbsp;followers</span> &nbsp;&nbsp;
+        <br><span style='color:blue'><%= @user.followers.count %>&nbsp;followers</span> &nbsp;&nbsp;
         <span style='color:blue'><%= @user.following.count %>&nbsp;followings</p>
         <br>
           <% if user_signed_in? && current_user!=@user%>
