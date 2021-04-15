@@ -1,29 +1,49 @@
-<div class='bg'> 
-<img>
-<%= image_tag "bgrd.jpeg" %>
-<img>
-</div>
-  
-		<div class="rowlog">
-			<div class="col-lg-6 col-md-6 form-container">
-				<div class="col-lg-8 col-md-12 col-sm-9 col-xs-12 form-box text-center">
-					<div class="logo mt-5 mb-3">
-						<%= image_tag "logo.png", class:'log1' %> 
+
+  <div class='forgetpass card'>
+	
+					<div class="forimg"> 
+						 <%= link_to image_tag('/img/logo.png',class:"logo",height:"100",alt:'logo'), root_path ,class:"navbar-brand"%>
 					</div>
 					<div class="heading mb-3">
-						<h4>Forgot your password?</h4>
+						<h2>Forgot your password?</h2>
 					</div>
-            <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+
+					<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+					  <%= render "devise/shared/error_messages", resource: resource %>
+
+					  <div class="field">
+					    <%= f.label :email %><br />
+						<span><i class="fa fa-envelope"></i>
+					    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+					  </div>
+						<br/><br/>
+					  <div class="actions">
+					    <%= f.submit "Send me reset password instructions",class:'btn btn-secondary' %>
+					  </div>
+					<% end %>
+					
+					<%= render "devise/shared/links"%>
+			
+</div>
+
+
+
+
+
+
+
+<!--
+
+ <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
               <%= render "devise/shared/error_messages", resource: resource %>
 						<div class="form-input">
-				   	<!--		<span><i class="fa fa-envelope"></i></span>
-							<input type="email" placeholder="Email Address" required>   -->
+				   	
               <span><i class="fa fa-envelope"></i></span>
               <%= f.email_field :email, autofocus: true, autocomplete: "email" ,placeholder:'Email'%>
 						</div>
 						
 						<div class="text-left mb-3">
-							<!-- button type="submit" class="btn">Login</button>  -->
+						
               <div class="actions">
                 <%= f.submit "Send me reset password instructions" %>
               </div> 
@@ -49,14 +69,9 @@
 						</div>
 						<div class="text-white">Don't have an account?
               <%= render "devise/shared/links" %>
-						 <!--	<a href="register.html" class="register-link">Register here</a><br/> <br/><br/> <br/> -->
+						 <!--	<a href="register.html" class="register-link">Register here</a><br/> <br/><br/> <br/> 
 						</div>
 
-				</div>
-			</div>
-      	
-			<%# <div class="col-lg-6 col-md-6 d-none d-md-block image-container"></div> %>
-		</div>
 
 
 
@@ -65,17 +80,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+-->
 
 
 

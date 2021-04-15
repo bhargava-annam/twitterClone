@@ -1,98 +1,57 @@
-<div class='bg'> 
-<img>
-<%= image_tag "bgrd.jpeg",class:'newbg'%>
-<img>
+<div class="d-flex flex-row">
+  <div class="login">
+  <img> <%= link_to image_tag('login.png',alt:'logo'), root_path ,class:"navbar-brand"%> </img>
+  </div>
+
+
+  <div class="p-2 signup-2">
+  <div class="d-flex flex-column">
+    <%= link_to image_tag('/img/logo.png',class:"logo",height:"50",alt:'logo'), root_path ,class:"navbar-brand"%>
+		<h2>Sign up</h2>
+
+	<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+	  <%= render "devise/shared/error_messages", resource: resource %>
+
+	  <div class="field">
+	    <%= f.label :username %><br />
+		<span><i class="fa fa-user"></i>
+	    <%= f.text_field :username, autofocus: true,placeholder: 'nick-name' %>
+	  </div>
+
+	  <div class="field">
+	    <%= f.label :email %><br />
+		<span><i class="fa fa-envelope"></i>
+	    <%= f.email_field :email, autofocus: true, autocomplete: "email" ,placeholder: 'abc@gmail.com'%>
+	  </div>
+
+	  <div class="field">
+	    <%= f.label :password %>
+	    <% if @minimum_password_length %>
+	    <em>(<%= @minimum_password_length %> characters minimum)</em>
+	    <% end %><br />
+		<span><i class="fa fa-lock"></i>
+	    <%= f.password_field :password, autocomplete: "new-password",placeholder: 'password' %>
+	  </div>
+
+	  <div class="field">
+	    <%= f.label :password_confirmation %><br />
+		<span><i class="fa fa-lock"></i>
+	    <%= f.password_field :password_confirmation, autocomplete: "new-password" ,placeholder: 'password' %>
+	  </div>
+		<br/>
+	  <div class="actions">
+	    <%= f.submit "Sign up",class:"btn btn-primary" %>
+	  </div>
+	<% end %>
+  <div>Already have an account?
+   <%= render "devise/shared/links" %>
+  </div>
+
+
+
+  </div>
+  </div>
 </div>
-  
-		<div class="rowlog">
-			<div class="col-lg-6 col-md-6 form-container newfrm">
-				<div class="col-lg-8 col-md-12 col-sm-9 col-xs-12 form-box text-center">
-					<div class="logo mt-5 mb-3">
-						<%= image_tag "logo.png", class:'log1' %> 
-					</div>
-					<div class="heading mb-3">
-						<h4>SIGN UP</h4>
-					</div>
-					<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-                     <%= render "devise/shared/error_messages", resource: resource %>
-						<div class="form-input">
-				   	<!--		<span><i class="fa fa-envelope"></i></span>
-							<input type="email" placeholder="Email Address" required>   -->
-              <span><i class="fa fa-user"></i></span>
-              <%= f.text_field :username, autofocus: true ,placeholder:'username'%>
-						</div>
-
-              <div class="form-input">
-				   	<!--		<span><i class="fa fa-envelope"></i></span>
-							<input type="email" placeholder="Email Address" required>   -->
-              <span><i class="fa fa-envelope"></i></span>
-              <%= f.email_field :email, autofocus: true, autocomplete: "email" ,placeholder:'Email'%>
-						</div>
-						<div class="form-input">
-				   	 <!--		<span><i class="fa fa-lock"></i></span>
-							<input type="password" placeholder="Password" required>    -->
-              <span><i class="fa fa-lock"></i></span>
-              <%= f.password_field :password, autocomplete: "new-password" ,placeholder:'password'%>
-              <% if @minimum_password_length %>
-                <em>(<%= @minimum_password_length %> characters minimum)</em>
-              <% end %>
-              
-						</div>
-
-              <div class="form-input">
-				   	<!--		<span><i class="fa fa-envelope"></i></span>
-							<input type="email" placeholder="Email Address" required>   -->
-              <span><i class="fa fa-lock"></i></span>
-              <%= f.password_field :password_confirmation, autocomplete: "new-password",placeholder:'confrom password' %>
-						</div>
-
-
-						
-						<div class="text-left mb-3">
-							<!-- button type="submit" class="btn">Login</button>  -->
-              				<div class="actions">
-              				  <%= f.submit "SIGN UP" %>
-              				</div> 
-						</div>
-             <% end %>
-						<div class="text-white mb-3">or login with</div>
-						<div class="row mb-3">
-							<div class="col-4">
-								<a href="" class="btn btn-block btn-social btn-facebook">
-									<i class="fa fa-facebook"></i>
-								</a>
-							</div>
-							<div class="col-4">
-								<a href="" class="btn btn-block btn-social btn-google">
-									<i class="fa fa-google"></i>
-								</a>
-							</div>
-							<div class="col-4">
-								<a href="" class="btn btn-block btn-social btn-twitter">
-									<i class="fa fa-github"></i>
-								</a>
-							</div>
-						</div>
-						<div class="text-white">Already have an account?
-              <%= render "devise/shared/links" %>
-						 <!--	<a href="register.html" class="register-link">Register here</a><br/> <br/><br/> <br/> -->
-						</div>
-
-				</div>
-			</div>
-      	
-			<%# <div class="col-lg-6 col-md-6 d-none d-md-block image-container"></div> %>
-		</div>
-
-
-
-
-
-
-
-
-
-
 
 
 

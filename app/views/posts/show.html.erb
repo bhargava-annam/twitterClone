@@ -4,51 +4,48 @@
     
   </div>
   <div class="col-8">
-      <div class="panel panel-default post-panel" style="border-radius: 25px 25px 0px 0px;">
+    <div class="panel panel-default post-panel" style="border-radius: 25px 25px 0px 0px;">
         <div class="panel-body">
-          <div class="col-sm-1">
+            <div class="col-sm-1">
             <% begin %>
-            <%= image_tag current_user.avatar.variant(resize: "50x50!"), class: "rounded-circle", style: 'margin-top:15px;margin-bottom:15px;' %>
+                <%= image_tag User.find(@post.user_id).avatar.variant(resize: "40x40!"), class: "rounded-circle", style: 'margin-top:15px;margin-bottom:15px;' %>
             <% rescue %>
-            <%= image_tag('/img/guest.png', style: 'height:50px;width:50px;margin-top:15px;margin-bottom:15px;' , class: "rounded-circle")%>
+                <%= image_tag('/img/guest.png', style: 'height:50px;width:50px;margin-top:15px;margin-bottom:15px;' , class: "rounded-circle")%>
             <% end %>
-          </div>
-          <div class="col-sm-11">
-          
-            <%= form_for(@post) do |f| %>
-            <center>
-
-                <div class="field post-title">
-
-                  <%= f.text_field :content, autofocus: true,class:"form-control" %>
-                  <br>
-                  <label for="s-t"><i class="material-icons">&#xe410;</i></label><br />
-                  <%= f.file_field :image, id:'s-t' %>
-                  <% if @post.image.attached?%>
-                <div class="image-tweet1" >
-                  <%= image_tag(@post.image, style: 'width:100%') if @post.image.attached? %>
-                 </div>
-                 <%= f.label :remove_image %>
-                <%= f.check_box :remove_image %>
-    
-              <% end %>
-
+            </div>
+            <div class="col-sm-11">
+            <p class="post-title">
+                <a href="/user/<%= User.find(@post.user_id).username %>">
+                <span class='post-owner'> <%= User.find(@post.user_id).username %> </span>
+                </a>
+                - <small class='post-time'><%= @post.created_at.to_formatted_s(:short)%></small>
+            </p>
+            <p class="post-content">
+                <%= @post.content %>
+                <div class="image-tweet" >
+                <%= image_tag(@post.image, style: 'width:100%') if @post.image.attached? %>
                 </div>
-
-                <div class="actions ">
-                  <%= f.submit "Tweet", class:"btn btn-secondary"%>
-                <div>
-            </center>
-
-                <br>
-
-            <% end %> 
-
+            </p>
             
-          </div>
-    
+            </div>
+            <div class="col-sm-12">
+            <p class="post-link">
+                <%= link_to '', post_path(@post.id),class:"post-img fa fa-reply"%>
+                <a href="" class="post-img"><i class="fas fa-retweet"></i></a>
+                <%= link_to like_post_path(@post.id) ,class:'like-btn far fa-heart post-img',onClick:"window.location.reload();", method: :put, remote: :true do %>
+                    <span class='likes-count'><%= @post.get_upvotes.size %></span>              
+                <% end %>
+                <% if user_signed_in? && current_user==User.find(@post.user_id)%>
+                <%= link_to '', edit_post_path(@post.id),class:"post-img fas fa-pencil-alt"%>
+            <% end %>
+                <% if user_signed_in? && current_user==User.find(@post.user_id)%>
+                <%= link_to '', {:controller=>:posts,:action=>:destroy, :id=>@post.id}, :method=>:delete, class:"post-img fas fa-trash" %>
+                <% end %>
+            </p>
+            </div>
         </div>
-    </div>
+        </div>
+
   </div>
 
   

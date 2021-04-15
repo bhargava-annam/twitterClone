@@ -39,7 +39,7 @@ class PagesController < ApplicationController
     else  
       @parameter = params[:search].downcase  
       @results = User.all.where("lower(username) LIKE :search", search: "%#{@parameter}%")  
-      puts @results
+      @results2 = Post.all.where("lower(content) LIKE :search", search: "%#{@parameter}%") 
     end 
   end
 
