@@ -758,11 +758,35 @@ background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
 }
 
 
-.login-2{
-  margin-top: 12%;
-}
+
 .image-tweet1{
   width:10rem;
   margin-bottom: 20px;
   
 }
+
+.login-2{
+  margin-top: 12%;
+}
+.signup-2{
+  margin-top: 5%;
+}
+.forgetpass{
+  margin-top: 8%;
+  margin-left: 25%;
+  width: 500px;
+  height: 400px;
+  align-items: center;
+}
+
+.parentS {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.childS {
+  width: 200px;
+  height: 200px;
+  margin: 5px;
+}
+
