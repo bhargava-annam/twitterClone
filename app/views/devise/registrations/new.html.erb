@@ -13,30 +13,30 @@
 	  <%= render "devise/shared/error_messages", resource: resource %>
 
 	  <div class="field">
-	    <%= f.label :username %><br />
+	    <% f.label :username %><br />
 		<span><i class="fa fa-user"></i>
-	    <%= f.text_field :username, autofocus: true,placeholder: 'nick-name' %>
+	    <%= f.text_field :username, autofocus: true,placeholder: 'Enter User Name' %>
 	  </div>
 
 	  <div class="field">
-	    <%= f.label :email %><br />
+	    <% f.label :email %><br />
 		<span><i class="fa fa-envelope"></i>
-	    <%= f.email_field :email, autofocus: true, autocomplete: "email" ,placeholder: 'abc@gmail.com'%>
+	    <%= f.email_field :email, autofocus: true, autocomplete: "email" ,placeholder: 'Enter your Email'%>
 	  </div>
-
+    <br>
 	  <div class="field">
-	    <%= f.label :password %>
+	    <% f.label :password %>
 	    <% if @minimum_password_length %>
 	    <em>(<%= @minimum_password_length %> characters minimum)</em>
 	    <% end %><br />
 		<span><i class="fa fa-lock"></i>
-	    <%= f.password_field :password, autocomplete: "new-password",placeholder: 'password' %>
+	    <%= f.password_field :password, autocomplete: "new-password",placeholder: 'Enter password' %>
 	  </div>
-
+    
 	  <div class="field">
-	    <%= f.label :password_confirmation %><br />
+	    <% f.label :password_confirmation %><br />
 		<span><i class="fa fa-lock"></i>
-	    <%= f.password_field :password_confirmation, autocomplete: "new-password" ,placeholder: 'password' %>
+	    <%= f.password_field :password_confirmation, autocomplete: "new-password" ,placeholder: 'Confirm Password' %>
 	  </div>
 		<br/>
 	  <div class="actions">

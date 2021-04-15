@@ -1,6 +1,6 @@
 #The pages controller contain all of the code for any pages inside of /pages
 class PagesController < ApplicationController
-  before_action :authenticate_user! ,only: %i[home]
+  before_action :authenticate_user!, except: [:explore]
   #back end code for pages/index
   def index
   end

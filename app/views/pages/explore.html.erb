@@ -17,51 +17,8 @@
     </div>
   
     <div class="col">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <p style="opacity: 50%;">
-              
-                <div class="card card-body">
-                  <div class="panel-body">
-                    <p class="side-panel">who to follow
-          
-                    </p>
-                  </div>
-                  <% @users.each do |f|%>
-                  <% if !user_signed_in? || f!=current_user && !current_user.following?(f)%>
-                    <div clas="col-sm-1">
-                      <% begin %>
-                          <%= image_tag User.find(f.id).avatar.variant(resize: "40x40!"), class: "sideimg rounded-circle", style: 'margin-top:15px;margin-bottom:50px;' %>
-                      <% rescue %>
-                          <%= image_tag('/img/guest.png',class: "sideimg rounded-circle", style: 'height:40px;width:40px;margin-top:15px;margin-bottom:50px;')%>
-                      <% end %>
-                    </div>
-                    <div style="margin-top: -84px;margin-bottom: -40px;">
-                      <span class="whotofollowtitle" style="margin-left: 42px;">
-                        &nbsp;<a href="/user/<%= f.username %>">
-                          <span class='post-owner'>
-                            <%= f.username%>
-                          </span>
-                        </a>
-                        </span>
-                      <p>
-                      
-            
-                            <%= button_to 'follow', relationships_path(user_id: f.id), class:"btn btn-outline-primary btn-sm",style:"margin-left: 127px;margin-top: -80px;" %> 
-                          
-                        
-                      </p>
-                    </div>
-                  <br>
-                  <% end %>
-                  <% end %>
-                </div>
-          
-          </p>
-        </div>
-      </div>
-      <br>
-      <div class="panel panel-default">
+       <%= render 'pages/whoto' %>
+       <div class="panel panel-default">
         <div class="panel-body">
           <p class="side-panel">about
           
