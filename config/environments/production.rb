@@ -11,7 +11,8 @@ Rails.application.configure do
     enable_starttls_auto: true,
     user_name: ENV["GMAIL_USERNAME"],
     password:ENV["GMAIL_PASSWORD"]
-  }# doesn't have to be Heroku, but you get the idea.config.action_mailer.default_url_options = { :host => 'yourhostsite.herokuapp.com' }
+  }# doesn't have to be Heroku, but you get the idea.
+  config.action_mailer.default_url_options = { :host => 'twitter-clone-capstone-team-2.herokuapp.com' }
 
   # Code is not reloaded between requests.
   config.cache_classes = true
