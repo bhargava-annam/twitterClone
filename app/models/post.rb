@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user
+  has_many :replies, dependent: :destroy 
   acts_as_votable
   validates :user_id, presence: true
   validates :content, presence: true, length: {maximum:140} # tweets are capped at 140 chars.

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   # resources :posts
   resources :posts do
+    resources :replies
     member do
       put "like" => 'posts#like'
     end

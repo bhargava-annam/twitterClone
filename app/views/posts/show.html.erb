@@ -45,7 +45,13 @@
             </div>
         </div>
         </div>
-
+        <p>
+        <%= render 'replies/form' %>
+        </p>
+        <h2><%= @post.replies.count %> Replies</h2>
+        <br/>
+        
+        <%= render @post.replies %>
   </div>
 
   
