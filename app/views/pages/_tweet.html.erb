@@ -29,12 +29,12 @@
         <%= link_to like_post_path(p.id) ,class:'like-btn far fa-heart post-img',onClick:"window.location.reload();", method: :put, remote: :true do %>
             <span class='likes-count'><%= p.get_upvotes.size %></span>              
         <% end %>
-        <% if user_signed_in? && current_user==User.find(p.user_id)%>
+    
         <%= link_to '', edit_post_path(p.id),class:"post-img fas fa-pencil-alt"%>
-      <% end %>
-        <% if user_signed_in? && current_user==User.find(p.user_id)%>
+      
+        
           <%= link_to '', {:controller=>:posts,:action=>:destroy, :id=>p.id}, :method=>:delete, class:"post-img fas fa-trash" %>
-        <% end %>
+        
       </p>
     </div>
   </div>
