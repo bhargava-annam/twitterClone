@@ -16,7 +16,7 @@
       </p>
       <p class="post-content">
         <%= p.content %>
-        <div class="image-tweet" >
+        <div class="image-tweet">
           <%= image_tag(p.image, style: 'width:100%') if p.image.attached? %>
         </div>
       </p>
@@ -25,7 +25,7 @@
     <div class="col-sm-12">
       <p class="post-link">
         <%= link_to '', post_path(p.id),class:"post-img fa fa-reply"%>
-        <a href="" class="post-img"><i class="fas fa-retweet"></i></a>
+        
         <%= link_to like_post_path(p.id) ,class:'like-btn far fa-heart post-img',onClick:"window.location.reload();", method: :put, remote: :true do %>
             <span class='likes-count'><%= p.get_upvotes.size %></span>              
         <% end %>
