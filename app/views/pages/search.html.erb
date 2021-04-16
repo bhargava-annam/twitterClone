@@ -86,7 +86,7 @@
 <% if @results.count > 0 %>
       <br/><br/> 
      <h1>Users</h1> 
-<div class="parentS">
+<div class="parentS" style="margin-left: 22px;">
      <% @results.each do |result| %> 
      <% if current_user.id != result.id %> 
      <div class=" childS p-3 m-4 card">
