@@ -25,6 +25,7 @@ gem 'jquery-rails'
 
 gem 'devise'
 
+# load environment variables from .env into ENV in development
 gem 'dotenv-rails'
 
 # gem for likes

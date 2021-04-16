@@ -34,12 +34,18 @@ class PagesController < ApplicationController
   end
 
   def search  
+    @users=User.all
+    @parameter = params[:search].downcase  
+    @results = User.all.where("lower(username) LIKE :search", search: "%#{@parameter}%")  
+    @results2 = Post.all.where("lower(content) LIKE :search", search: "%#{@parameter}%")
     if params[:search].blank?  
       redirect_to(root_path, alert: "Empty field!") and return  
     else  
-      @parameter = params[:search].downcase  
-      @results = User.all.where("lower(username) LIKE :search", search: "%#{@parameter}%")  
-      @results2 = Post.all.where("lower(content) LIKE :search", search: "%#{@parameter}%") 
+      if @results.length == 0 and @results2.length == 0
+        redirect_to(root_path, alert: "Search Not Found!")
+      else
+        return [ @result,@results2]
+      end
     end 
   end
 
