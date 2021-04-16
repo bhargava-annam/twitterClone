@@ -778,6 +778,13 @@ background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
   height: 400px;
   align-items: center;
 }
+.changepass{
+  margin-top: 8%;
+  margin-left: 25%;
+  width: 500px;
+  height: 450px;
+  align-items: center;
+}
 
 .parentS {
   display: flex;
