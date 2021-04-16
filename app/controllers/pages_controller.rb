@@ -34,6 +34,7 @@ class PagesController < ApplicationController
   end
 
   def search  
+    @users=User.all
     if params[:search].blank?  
       redirect_to(root_path, alert: "Empty field!") and return  
     else  
