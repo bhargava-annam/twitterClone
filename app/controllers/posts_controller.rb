@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
     before_action :authenticate_user! 
+    before_action :correct_user, only: [:edit, :update, :destroy]
     
     respond_to :js, :json, :html
 
@@ -58,6 +59,14 @@ class PostsController < ApplicationController
         end
         # redirect_back(fallback_location: root_path)
         
+    end
+
+    def correct_user
+        if current_user.posts.find_by(id: params[:id]).nil?
+          redirect_to root_path, notice: "Not authorize to edit this post" 
+  
+        end
+      
     end
 
     private
