@@ -22,15 +22,15 @@
           </p>
           <p class="post-content">
               <%= @post.content %>
-              <div class="image-tweet" >
-              <%= image_tag(@post.image, style: 'width:100%') if @post.image.attached? %>
+              <div class="image-tweet imgcenter" >
+              <%= image_tag(@post.image, style: 'width:100%;max-height: 450px;margin-left: 12px;') if @post.image.attached? %>
               </div>
           </p>
         </div>
         <div class="col-sm-12">
           <p class="post-link">
               <%= link_to '', post_path(@post.id),class:"post-img fa fa-reply"%>
-              <a href="" class="post-img"><i class="fas fa-retweet"></i></a>
+            
               <%= link_to like_post_path(@post.id) ,class:'like-btn far fa-heart post-img',onClick:"window.location.reload();", method: :put, remote: :true do %>
                   <span class='likes-count'><%= @post.get_upvotes.size %></span>              
               <% end %>
@@ -47,7 +47,7 @@
     <p>
     <%= render 'replies/form' %>
     </p>
-    <h2><%= @post.replies.count %> Replies</h2>
+    <h4><%= @post.replies.count %> Replies</h4>
     <p>
       <%= render @post.replies %>
     </p>

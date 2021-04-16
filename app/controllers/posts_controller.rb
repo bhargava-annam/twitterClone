@@ -57,7 +57,7 @@ class PostsController < ApplicationController
         elsif current_user.liked? @post
             @post.unliked_by current_user
         end
-        # redirect_back(fallback_location: root_path)
+         redirect_back(fallback_location: root_path)
         
     end
 
